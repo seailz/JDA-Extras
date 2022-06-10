@@ -6,7 +6,7 @@ import dev.negativekb.api.util.TimeUtil;
 import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.entities.User;
-import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public abstract class SlashSubCommand {
         }
     }
 
-    public void runCommand(SlashCommandEvent event) {
+    public void runCommand(SlashCommandInteractionEvent event) {
         if (cooldownInSeconds != 0) {
             User user = event.getUser();
             String id = user.getId();
@@ -67,5 +67,5 @@ public abstract class SlashSubCommand {
         onCommand(event);
     }
 
-    public abstract void onCommand(SlashCommandEvent event);
+    public abstract void onCommand(SlashCommandInteractionEvent event);
 }

@@ -4,7 +4,7 @@ import dev.negativekb.api.commands.SlashCommand;
 import dev.negativekb.api.commands.internal.CommandMap;
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,7 +17,7 @@ public class SlashCommandListener extends ListenerAdapter {
     private final CommandMap commandMap;
 
     @Override
-    public void onSlashCommand(@NotNull SlashCommandEvent event) {
+    public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
         Guild guild = event.getGuild();
         if (guild == null)
             return;
